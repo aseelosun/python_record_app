@@ -50,10 +50,10 @@ def delete_record():
 def test_db():
     try:
         conn = psycopg2.connect(
-            host="db",  
-            database="records_db",
-            user="user",
-            password="secret"
+            host=os.environ['DB_HOST'],
+            database=os.environ['DB_NAME'],
+            user=os.environ['DB_USER'],
+            password=os.environ['DB_PASSWORD']
         )
         conn.close()
         return "PostgreSQL connection successful"
