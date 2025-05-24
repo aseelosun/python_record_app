@@ -18,9 +18,9 @@ services:
     build: ./app
     environment:
       - DB_HOST=db
-      - DB_NAME=records_db
-      - DB_USER=user
-      - DB_PASSWORD=secret
+      - DB_NAME=${POSTGRES_DB}
+      - DB_USER=${POSTGRES_USER}
+      - DB_PASSWORD=${POSTGRES_PASSWORD}
     depends_on:
       - db
     networks:
@@ -29,9 +29,9 @@ services:
   db:
     image: postgres:15
     environment:
-      POSTGRES_DB: records_db
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - ./pgdata:/var/lib/postgresql/data
     networks:
