@@ -58,6 +58,7 @@ docker-compose up -d
 ```
 curl -k https://localhost/addrecord
 curl -k https://localhost/deleterecord
+curl -k https://localhost/testdb
 ```
 
 
